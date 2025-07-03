@@ -1,59 +1,59 @@
-# Code Vault - In-Browser IDE
+# Code Vault - IDE en el Navegador
 
-This is a simple in-browser Integrated Development Environment (IDE) that allows users to manage projects, create and edit files, and interact with a mock AI assistant for code analysis. All data is stored locally in the browser's localStorage.
+Este es un Entorno de Desarrollo Integrado (IDE) simple que funciona en el navegador y permite a los usuarios gestionar proyectos, crear y editar archivos, e interactuar con un asistente de IA simulado para el análisis de código. Todos los datos se almacenan localmente en el `localStorage` del navegador.
 
-## Features
+## Características
 
-*   **Project Management:**
-    *   Create new projects.
-    *   Switch between projects.
-    *   Delete projects (this will also delete all associated files).
-*   **File Operations:**
-    *   Create new text files within a project.
-    *   Upload files from your local system into a project.
-    *   Edit file content with a simple text editor.
-    *   Save file changes.
-    *   Download individual files.
-    *   Download an entire project as a ZIP archive.
-    *   Delete files from a project.
-*   **AI Assistant (Mock):**
-    *   Select a file from the current project for analysis.
-    *   Send messages or questions about the selected file's content.
-    *   Receive mock responses from the AI (currently a placeholder).
-*   **Persistence:**
-    *   Projects and files are saved in the browser's `localStorage`, so your work persists across sessions on the same browser.
+*   **Gestión de Proyectos:**
+    *   Crear nuevos proyectos.
+    *   Cambiar entre proyectos.
+    *   Eliminar proyectos (esto también eliminará todos los archivos asociados).
+*   **Operaciones de Archivos:**
+    *   Crear nuevos archivos de texto dentro de un proyecto.
+    *   Subir archivos desde tu sistema local a un proyecto.
+    *   Editar el contenido de los archivos con un editor de texto simple.
+    *   Guardar cambios en los archivos.
+    *   Descargar archivos individuales.
+    *   Descargar un proyecto entero como un archivo ZIP.
+    *   Eliminar archivos de un proyecto.
+*   **Asistente de IA (Simulado):**
+    *   Seleccionar un archivo del proyecto actual para su análisis.
+    *   Enviar mensajes o preguntas sobre el contenido del archivo seleccionado.
+    *   Recibir respuestas simuladas de la IA (actualmente es un marcador de posición).
+*   **Persistencia:**
+    *   Los proyectos y archivos se guardan en el `localStorage` del navegador, por lo que tu trabajo persiste entre sesiones en el mismo navegador.
 
-## How to Run
+## Cómo Ejecutarlo
 
-1.  Ensure you have a modern web browser (e.g., Chrome, Firefox, Edge, Safari).
-2.  Clone or download the project files.
-3.  Open the `index.html` file directly in your web browser.
-    *   **Note:** Due to browser security restrictions (CORS) when using `file:///` protocol for ES module imports (even with Babel Standalone), it's recommended to serve the files through a simple local HTTP server.
-        *   If you have Python: `python -m http.server` in the project root, then navigate to `http://localhost:8000/index.html`.
-        *   Using Node.js: `npx serve` in the project root, then navigate to the provided local URL.
-        *   Or use any other simple HTTP server.
-    *   If you open `index.html` directly via `file:///`, some browsers might block the loading of `CodeVault.jsx` and its dependencies.
+1.  Asegúrate de tener un navegador web moderno (ej. Chrome, Firefox, Edge, Safari).
+2.  Clona o descarga los archivos del proyecto.
+3.  Abre el archivo `index.html` directamente en tu navegador web.
+    *   **Nota:** Debido a las restricciones de seguridad del navegador (CORS) al usar el protocolo `file:///` para importaciones de módulos ES (incluso con Babel Standalone), se recomienda servir los archivos a través de un servidor HTTP local simple.
+        *   Si tienes Python: `python -m http.server` en la raíz del proyecto, luego navega a `http://localhost:8000/index.html`.
+        *   Usando Node.js: `npx serve` en la raíz del proyecto, luego navega a la URL local proporcionada.
+        *   O usa cualquier otro servidor HTTP simple.
+    *   Si abres `index.html` directamente mediante `file:///`, algunos navegadores podrían bloquear la carga de `CodeVault.jsx` y sus dependencias.
 
-## Tech Stack
+## Stack Tecnológico
 
 *   **Frontend:**
-    *   React (via CDN)
-    *   TailwindCSS (via CDN for styling)
-    *   Lucide Icons (for UI icons)
-*   **In-Browser Transpilation:**
-    *   Babel Standalone (to transpile JSX and handle ES6 modules directly in the browser)
-*   **File Handling:**
-    *   JSZip (for creating ZIP archives for project download)
-*   **Storage:**
-    *   Browser `localStorage`
+    *   React (vía CDN)
+    *   TailwindCSS (vía CDN para estilos)
+    *   Lucide Icons (para iconos de interfaz de usuario)
+*   **Transpilación en el Navegador:**
+    *   Babel Standalone (para transpilar JSX y manejar módulos ES6 directamente en el navegador)
+*   **Manejo de Archivos:**
+    *   JSZip (para crear archivos ZIP para la descarga de proyectos)
+*   **Almacenamiento:**
+    *   `localStorage` del navegador
 
-## Project Structure
+## Estructura del Proyecto
 
-*   `index.html`: The main entry point for the application.
-*   `CodeVault.jsx`: The root React component for the application.
-*   `components/`: Contains individual React components for different parts of the UI (e.g., `FileEditor.jsx`, `ProjectSidebar.jsx`).
-*   `hooks/`: Contains custom React hooks (e.g., `useFileOperations.js`).
-*   `utils/`: Contains utility functions (e.g., `fileUtils.js`).
-*   `README.md`: This file.
+*   `index.html`: El punto de entrada principal para la aplicación.
+*   `CodeVault.jsx`: El componente raíz de React para la aplicación.
+*   `components/`: Contiene componentes individuales de React para diferentes partes de la interfaz de usuario (ej. `FileEditor.jsx`, `ProjectSidebar.jsx`).
+*   `hooks/`: Contiene hooks personalizados de React (ej. `useFileOperations.js`).
+*   `utils/`: Contiene funciones de utilidad (ej. `fileUtils.js`).
+*   `README.md`: Este archivo.
 
-This project demonstrates building a React application without a traditional build step, relying on CDNs and in-browser transpilation.
+Este proyecto demuestra la construcción de una aplicación React sin un paso de compilación tradicional, dependiendo de CDNs y transpilación en el navegador.
